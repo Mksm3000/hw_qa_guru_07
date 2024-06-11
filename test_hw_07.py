@@ -10,11 +10,10 @@ from pypdf import PdfReader
 
 def test_open_csv_file_from_zip():
     with ZipFile('resources/my_archive.zip') as zip_file:
-        with zip_file.open('file_example_CSV.csv') as csv_file:
+        with zip_file.open('tmp/file_example_CSV.csv') as csv_file:
             csvreader = list(csv.reader(TextIOWrapper(csv_file, 'utf-8-sig')))
-            temp_row = csvreader[2]
-            assert temp_row[1] == 'Dulce'
-            assert temp_row[4] == 'United States'
+            temp_row = csvreader[3]
+            assert temp_row[1] == 'Достоевский Фёдор Михайлович'
 
 
 def test_open_xlsx_file_from_zip():
